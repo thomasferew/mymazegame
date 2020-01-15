@@ -1,0 +1,114 @@
+<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable type="KIND_SpriteKind" id="yEI](}7$ntdE@/m{c];w">Player</variable><variable type="KIND_SpriteKind" id="CT_.?P~v*!**4MrU*LkI">Projectile</variable><variable type="KIND_SpriteKind" id="R9I_{-_/$1AQ8_%hbq#m">Food</variable><variable type="KIND_SpriteKind" id="?dwwdM]]q[uTnR8ONn22">Enemy</variable><variable id="A4i*l]{H_.*@G8ZrsG)Y">runner</variable><variable id="4s4:xsfI~]ds=3){1UB|">projectile</variable><variable id="B|4S*.(eBF=D:IcyT[NN">mySprite</variable></variables><block type="pxt-on-start" x="0" y="0"><statement name="HANDLER"><block type="variables_set"><field name="VAR" id="A4i*l]{H_.*@G8ZrsG)Y">runner</field><value name="VALUE"><shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number"><field name="NUM">0</field></shadow><block type="spritescreate"><value name="img"><shadow type="screen_image_picker"><field name="img">img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . 6 6 6 6 6 6 6 6 . . . . . 
+. . . 6 9 9 9 9 9 9 6 . . . . . 
+. . . 6 9 9 9 9 9 9 6 . . . . . 
+. . . 6 9 9 9 9 9 9 6 . . . . . 
+. . . 6 9 9 9 9 9 9 6 . . . . . 
+. . . 6 6 6 6 6 6 6 6 . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`</field></shadow></value><value name="kind"><shadow type="spritekind"><field name="MEMBER">Player</field></shadow></value></block></value><next><block type="game_control_sprite"><mutation xmlns="http://www.w3.org/1999/xhtml" _expanded="0" _input_init="false"></mutation><value name="sprite"><block type="variables_get"><field name="VAR" id="A4i*l]{H_.*@G8ZrsG)Y">runner</field></block></value></block></next></block></statement></block><block type="gamesetbackgroundimage" disabled="true" x="50" y="270"><value name="img"><shadow type="background_image_picker"><field name="img">img`
+f 7 7 7 f 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+f 7 7 7 f 7 7 7 7 7 7 7 7 7 7 7 7 f f f f f f f f f f 7 7 7 7 7 
+f 7 7 7 f 7 7 7 7 7 7 7 7 7 7 7 7 f 7 7 7 7 7 7 7 7 f 7 7 7 7 7 
+f 7 7 7 f f f f f f f f f f f f f f 7 7 7 7 7 7 7 7 f 7 7 7 7 7 
+f 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 f 7 7 7 7 7 
+f 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 f 7 7 7 7 7 
+f 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 f 7 7 7 7 7 
+f f f f f f 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 f f 7 7 7 7 
+7 7 7 7 7 f 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 f 7 7 7 7 
+7 7 7 7 7 f 7 7 7 7 f f f f f f f f f f f f f f 7 7 7 f 7 7 7 7 
+7 7 7 7 7 f 7 7 7 7 f 7 7 7 7 7 7 7 7 7 7 7 7 f 7 7 7 f 7 7 7 7 
+7 7 7 7 7 f 7 7 7 7 f 7 7 7 7 7 7 7 7 7 7 7 7 f 7 7 7 f 7 7 7 7 
+f f f f f f 7 7 7 7 f 7 7 7 7 7 7 7 7 7 7 7 7 f 7 7 7 f 7 7 7 7 
+7 7 7 7 7 7 7 7 7 7 f 7 7 7 f f f f f f f f f f 7 7 7 f 7 7 7 7 
+7 7 7 7 7 7 7 7 7 7 f 7 7 7 f 7 7 7 7 7 7 7 7 7 7 7 7 f 7 7 7 7 
+7 7 7 7 7 7 7 7 7 7 f 7 7 7 f 7 7 7 7 7 7 7 7 7 7 7 7 f 7 7 7 7 
+7 7 f 7 7 7 7 7 7 7 f 7 7 7 f 7 7 7 7 7 7 7 7 7 7 7 7 f 7 7 7 7 
+7 7 f 7 7 7 7 7 7 7 f 7 7 7 f 7 7 7 7 7 7 7 7 7 7 7 7 f 7 7 7 7 
+7 7 f 7 7 7 7 7 7 7 f 7 7 7 f f f f 7 7 7 7 7 7 7 7 7 f 7 7 7 7 
+7 7 f 7 7 7 7 7 7 7 f 7 7 7 7 7 7 f f f f f f f f f f f 7 7 7 7 
+7 7 f 7 7 7 7 7 7 7 f 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+7 7 f 7 7 7 7 7 7 7 f 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+7 7 f 7 7 7 7 7 7 7 f 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+7 7 f 7 7 7 7 7 7 7 f f f 7 7 7 7 f f f f f f f f f f f f 7 7 7 
+7 7 f 7 7 7 7 7 7 7 7 7 f f f f f 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+7 7 f 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+7 7 f 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+7 7 7 f f f f f 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+7 7 7 7 7 7 7 f f f f f f f f f f f f f f f f f f f f f f f f f 
+7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+`</field></shadow></value></block><block type="variables_set" disabled="true" x="590" y="490"><field name="VAR" id="4s4:xsfI~]ds=3){1UB|">projectile</field><value name="VALUE"><shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number"><field name="NUM">0</field></shadow><block type="spritescreateprojectilefromsprite"><value name="img"><shadow type="screen_image_picker"><field name="img">img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . 5 5 5 5 5 5 . . . . . . 
+. . . 5 5 5 5 5 5 5 5 . . . . . 
+. . . 5 5 5 4 4 5 5 5 . . . . . 
+. . . 5 5 5 5 5 5 5 5 . . . . . 
+. . . 5 5 5 5 5 5 5 5 . . . . . 
+. . . . 5 5 5 5 5 5 . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`</field></shadow></value><value name="sprite"><block type="variables_get"><field name="VAR" id="A4i*l]{H_.*@G8ZrsG)Y">runner</field></block></value><value name="vx"><shadow type="spriteSpeedPicker"><field name="speed">50</field></shadow></value><value name="vy"><shadow type="spriteSpeedPicker"><field name="speed">100</field></shadow></value></block></value></block><block type="gamesetbackgroundimage" disabled="true" x="90" y="570"><value name="img"><shadow type="background_image_picker"><field name="img">img`
+7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+7 f f f f f f f 7 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 7 
+7 f f f f f f f 7 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 7 
+7 f f f f f f f 7 f f f f f f f 7 7 7 7 7 7 7 7 7 f f f f f f f f f f f f f f f f f f f 7 
+7 f f f f f f f 7 f f f f f f f 7 f f f f f f f 7 f f f f f f f f f f f f f f f f f f f 7 
+7 f f f f f f f 7 f f f f f f f 7 f f f f f f f 7 f f f f f f f f f f f f f 7 f f f f f 7 
+7 f f f f f f f 7 f f f f f f f 7 f f f f f f f 7 f f f f f f f f f f f f f 7 f f f f f 7 
+7 f f f f f f f 7 f f f f f f f 7 f f f f f f f 7 f f f f f f f f f f f f f 7 f f f f f 7 
+7 f f f f f f f 7 f f f f f f f 7 f f f f f f f 7 f f f f f f f f f f f f f 7 f f f f f 7 
+7 f f f f f f f 7 f f f f f f f 7 f f f f f f f 7 f f f f f f f f f f f f f 7 f f f f f 7 
+7 f f f f f f f 7 f f f f f f f 7 f f f f f f f 7 f f f f f f f f f f f f f 7 f f f f f 7 
+7 f f f f f f f 7 f f f f f f f 7 f f f f f f f 7 7 f f f f f f f f f f f f 7 7 f f f f 7 
+7 f f f f f f f 7 f f f f f f f 7 f f f f f f f f 7 f f f f f f f f f f f f f 7 f f f f 7 
+7 f f f f f f f 7 f f f f f f f 7 f f f f f f f f 7 f f f f f f f f f f f f f 7 f f f f 7 
+7 f f f f f f f 7 f f f f f f f 7 f f f f f f f f 7 f f f f f f f f f f f f f 7 f f f f 7 
+7 f f f f f f f 7 f f f f f f f 7 f f f f f f f f 7 f f f f f f f f f f f f f 7 f f f f 7 
+7 f f f f f f f 7 f f f f f f f 7 f f f f f f f f 7 f f f f f f f f f f f f f 7 f f f f 7 
+7 f f f f f f f 7 7 7 7 7 7 7 7 7 f f f f f f f f 7 f f f f f f f f f f f f f 7 f f f f 7 
+7 f f f f f f f f f f f f f f f f f f f f f f f f 7 f f f f f f f f f f f f f 7 f f f f 7 
+7 f f f f f f f f f f f f f f f f f f f f f f f f 7 f f f f f f f f f f f f f 7 f f f f 7 
+7 f f f f f f f f f f f f f f f f f f f f f f f f 7 f f f f f f f f f f f f f 7 f f f f 7 
+7 f f f f f f f f f f f f f f f f f f f f f f f f 7 f f f f f f f f f f f f f 7 f f f f 7 
+7 f f f f f f f f f f f f f f f f f f f f f f f f 7 f f f f f f f f f f f f f 7 f f f f 7 
+7 f f f f f f f 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 f f f f f f f f f f f f f 7 f f f f 7 
+7 f f f f f f f 7 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 7 7 f f f f 7 
+7 f f f f f f f 7 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 7 f f f f f 7 
+7 f f f f f f f 7 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 7 f f f f f 7 
+7 f f f f f f f 7 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 7 f f f f f 7 
+7 f f f f f f f 7 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 7 f f f f f 7 
+7 f f f f f f f 7 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 7 f f f f f 7 
+7 f f f f f f f 7 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 7 f f f f f 7 
+7 f f f f f f f 7 7 7 7 7 7 7 7 7 f f f f 7 7 7 7 7 7 7 7 7 7 7 f f f f f f 7 7 f f f f 7 
+7 f f f f f f f f f f f f f f f f 7 7 7 7 7 f f f f f f f f f 7 f f f f f f f 7 f f f f 7 
+7 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 7 f f f f f f f 7 f f f f 7 
+7 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 7 f f f f f f f 7 f f f f 7 
+7 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 7 7 7 7 7 7 7 7 7 f f f f 7 
+7 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 7 
+7 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 7 
+7 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 7 
+7 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 7 
+7 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 7 
+7 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 7 
+7 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 7 
+7 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 7 
+7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+`</field></shadow></value></block></xml>
