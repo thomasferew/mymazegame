@@ -1,5 +1,5 @@
 {
-    "name": "myMazegame",
+    "name": "mymazegame",
     "description": "",
     "dependencies": {
         "device": "*"
@@ -15,5 +15,5 @@
     "supportedTargets": [
         "arcade"
     ],
-    "preferredEditor": "blocksprj"
+    "preferredEditor": "tsprj"
 }
