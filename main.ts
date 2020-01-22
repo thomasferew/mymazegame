@@ -17,6 +17,8 @@ function villain () {
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 `, SpriteKind.Enemy)
+    villian.setPosition(63, 31)
+    villian.setVelocity(50, 50)
 }
 function hero () {
     othersprite = sprites.create(img`
@@ -41,9 +43,6 @@ function hero () {
     controller.moveSprite(othersprite, 100, 0)
     othersprite.setFlag(SpriteFlag.StayInScreen, true)
     info.startCountdown(50)
-}
-function doSomething () {
-	
 }
 // it creates a sprite to shoot when press a
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -72,26 +71,6 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
     othersprite.destroy()
     game.over(false)
 })
-function projectile () {
-    projectile2 = sprites.createProjectileFromSprite(img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`, othersprite, 50, 100)
-}
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Player, function (sprite, otherSprite) {
     ball.destroy()
     villian.destroy()
@@ -140,13 +119,11 @@ sprites.onCreated(SpriteKind.Enemy, function (sprite) {
     villian.vy = 80
 })
 let mySprite2: Sprite = null
-let projectile2: Sprite = null
 let ball: Sprite = null
 let othersprite: Sprite = null
 let villian: Sprite = null
 hero()
 villain()
-projectile()
 // set villain velocity forever
 forever(function () {
     villian = sprites.create(img`
