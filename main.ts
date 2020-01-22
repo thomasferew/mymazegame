@@ -1,24 +1,5 @@
-function villain () {
-    villian = sprites.create(img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . 3 3 3 . . . . . . . 
-. . . . . 3 3 3 3 3 . . . . . . 
-. . . . 3 3 3 3 3 3 3 . . . . . 
-. . . . 3 3 f 3 f 3 3 . . . . . 
-. . . . 3 3 3 3 3 3 3 . . . . . 
-. . . . 3 3 f f f 3 3 . . . . . 
-. . . . . 3 3 3 3 3 . . . . . . 
-. . . . . 3 3 3 3 3 . . . . . . 
-. . . . . . 3 3 3 . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`, SpriteKind.Enemy)
-    villian.setPosition(63, 31)
-    villian.setVelocity(50, 50)
+namespace SpriteKind {
+    export const enemy2 = SpriteKind.create()
 }
 function hero () {
     othersprite = sprites.create(img`
@@ -43,7 +24,40 @@ function hero () {
     controller.moveSprite(othersprite, 100, 0)
     othersprite.setFlag(SpriteFlag.StayInScreen, true)
     info.startCountdown(50)
+    info.setLife(1)
 }
+function say () {
+    game.splash("dodge enemy and press A to shoot")
+}
+// when enemy overlaps with the player you destroy the
+// enemy and you lose
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.enemy2, function (sprite, otherSprite) {
+    info.changeScoreBy(1)
+    villian.destroy()
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.enemy2, function (sprite, otherSprite) {
+    ball.destroy()
+    villian.destroy()
+    info.changeLifeBy(-1)
+    mySprite2 = sprites.create(img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, SpriteKind.Player)
+})
 // it creates a sprite to shoot when press a
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     ball = sprites.createProjectileFromSprite(img`
@@ -64,35 +78,6 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 `, othersprite, 0, -50)
-})
-// when enemy overlaps with the player you destroy the
-// enemy and you lose
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-    othersprite.destroy()
-    game.over(false)
-})
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Player, function (sprite, otherSprite) {
-    ball.destroy()
-    villian.destroy()
-    info.changeScoreBy(1)
-    mySprite2 = sprites.create(img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`, SpriteKind.Player)
 })
 // set position and movement of enemy.
 sprites.onCreated(SpriteKind.Enemy, function (sprite) {
@@ -116,14 +101,36 @@ sprites.onCreated(SpriteKind.Enemy, function (sprite) {
 . . . . . . . . . . . . . . . . 
 `)
     villian.y = Math.randomRange(0, 120)
-    villian.vy = 80
+    villian.vy = 0
 })
 let mySprite2: Sprite = null
 let ball: Sprite = null
-let othersprite: Sprite = null
 let villian: Sprite = null
+let othersprite: Sprite = null
 hero()
-villain()
+say()
+game.onUpdateInterval(500, function () {
+    villian = sprites.create(img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . 3 3 3 . . . . . . . 
+. . . . . 3 3 3 3 3 . . . . . . 
+. . . . 3 3 3 3 3 3 3 . . . . . 
+. . . . 3 3 f 3 f 3 3 . . . . . 
+. . . . 3 3 3 3 3 3 3 . . . . . 
+. . . . 3 3 f f f 3 3 . . . . . 
+. . . . . 3 3 3 3 3 . . . . . . 
+. . . . . 3 3 3 3 3 . . . . . . 
+. . . . . . 3 3 3 . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, SpriteKind.enemy2)
+    villian.setPosition(63, 31)
+    villian.setVelocity(Math.randomRange(0, 100), Math.randomRange(0, 100))
+})
 // set villain velocity forever
 forever(function () {
     villian = sprites.create(img`
