@@ -18,6 +18,26 @@ function villain () {
 . . . . . . . . . . . . . . . . 
 `, SpriteKind.Player)
 }
+function projectile () {
+    projectile2 = sprites.createProjectileFromSide(img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . 8 8 8 8 8 8 8 . . . . . 
+. . . . 8 8 8 8 8 8 8 . . . . . 
+. . . . 8 8 8 8 8 8 8 . . . . . 
+. . . . 8 8 8 8 8 8 8 . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, 50, 100)
+}
 function hero () {
     othersprite = sprites.create(img`
 . . . . . . . . . . . . . . . . 
@@ -122,6 +142,7 @@ sprites.onCreated(SpriteKind.Enemy, function (sprite) {
 let mySprite2: Sprite = null
 let ball: Sprite = null
 let othersprite: Sprite = null
+let projectile2: Sprite = null
 let villian: Sprite = null
 hero()
 // set villain velocity forever
