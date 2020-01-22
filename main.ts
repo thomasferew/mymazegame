@@ -1,3 +1,47 @@
+function villain () {
+    villian = sprites.create(img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . 3 3 3 . . . . . . . 
+. . . . . 3 3 3 3 3 . . . . . . 
+. . . . 3 3 3 3 3 3 3 . . . . . 
+. . . . 3 3 f 3 f 3 3 . . . . . 
+. . . . 3 3 3 3 3 3 3 . . . . . 
+. . . . 3 3 f f f 3 3 . . . . . 
+. . . . . 3 3 3 3 3 . . . . . . 
+. . . . . 3 3 3 3 3 . . . . . . 
+. . . . . . 3 3 3 . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, SpriteKind.Player)
+}
+function hero () {
+    othersprite = sprites.create(img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . 2 2 2 . . . . . . . 
+. . . . . 2 2 2 2 2 . . . . . . 
+. . . . . 2 2 2 2 2 . . . . . . 
+. . . . . . 2 2 2 . . . . . . . 
+. . . . . 2 2 2 2 2 . . . . . . 
+. . . . 2 2 2 2 2 2 2 . . . . . 
+. . . 2 2 2 2 2 2 2 2 . . . . . 
+. . . 2 2 2 2 2 2 2 2 2 . . . . 
+. . . . . 2 2 2 2 2 2 2 . . . . 
+. . . . . 2 2 2 2 2 . . . . . . 
+. . . . . 2 . . . 2 . . . . . . 
+. . . . . 2 . . . 2 . . . . . . 
+. . . . 2 2 . . . 2 2 . . . . . 
+. . . . . . . . . . . . . . . . 
+`, SpriteKind.Player)
+    othersprite.y = 150
+    controller.moveSprite(othersprite, 100, 0)
+    othersprite.setFlag(SpriteFlag.StayInScreen, true)
+    info.startCountdown(50)
+}
 function doSomething () {
 	
 }
@@ -76,31 +120,10 @@ sprites.onCreated(SpriteKind.Enemy, function (sprite) {
     villian.vy = 80
 })
 let mySprite2: Sprite = null
-let villian: Sprite = null
 let ball: Sprite = null
 let othersprite: Sprite = null
-othersprite = sprites.create(img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . 2 2 2 . . . . . . . 
-. . . . . 2 2 2 2 2 . . . . . . 
-. . . . . 2 2 2 2 2 . . . . . . 
-. . . . . . 2 2 2 . . . . . . . 
-. . . . . 2 2 2 2 2 . . . . . . 
-. . . . 2 2 2 2 2 2 2 . . . . . 
-. . . 2 2 2 2 2 2 2 2 . . . . . 
-. . . 2 2 2 2 2 2 2 2 2 . . . . 
-. . . . . 2 2 2 2 2 2 2 . . . . 
-. . . . . 2 2 2 2 2 . . . . . . 
-. . . . . 2 . . . 2 . . . . . . 
-. . . . . 2 . . . 2 . . . . . . 
-. . . . 2 2 . . . 2 2 . . . . . 
-. . . . . . . . . . . . . . . . 
-`, SpriteKind.Player)
-othersprite.y = 150
-controller.moveSprite(othersprite, 100, 0)
-othersprite.setFlag(SpriteFlag.StayInScreen, true)
-info.startCountdown(50)
+let villian: Sprite = null
+hero()
 // set villain velocity forever
 forever(function () {
     villian = sprites.create(img`
