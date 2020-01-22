@@ -16,27 +16,7 @@ function villain () {
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
-`, SpriteKind.Player)
-}
-function projectile () {
-    projectile2 = sprites.createProjectileFromSide(img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . 8 8 8 8 8 8 8 . . . . . 
-. . . . 8 8 8 8 8 8 8 . . . . . 
-. . . . 8 8 8 8 8 8 8 . . . . . 
-. . . . 8 8 8 8 8 8 8 . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`, 50, 100)
+`, SpriteKind.Enemy)
 }
 function hero () {
     othersprite = sprites.create(img`
@@ -92,6 +72,26 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
     othersprite.destroy()
     game.over(false)
 })
+function projectile () {
+    projectile2 = sprites.createProjectileFromSprite(img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, othersprite, 50, 100)
+}
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Player, function (sprite, otherSprite) {
     ball.destroy()
     villian.destroy()
@@ -140,11 +140,13 @@ sprites.onCreated(SpriteKind.Enemy, function (sprite) {
     villian.vy = 80
 })
 let mySprite2: Sprite = null
+let projectile2: Sprite = null
 let ball: Sprite = null
 let othersprite: Sprite = null
-let projectile2: Sprite = null
 let villian: Sprite = null
 hero()
+villain()
+projectile()
 // set villain velocity forever
 forever(function () {
     villian = sprites.create(img`
